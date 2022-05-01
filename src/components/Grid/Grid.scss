@@ -1,0 +1,36 @@
+@import "../Variables/Variables.scss";
+
+.Grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 48px;
+
+  &-TwoFr {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 32px;
+  }
+
+  @media ($tabletSmall) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 32px;
+  }
+
+  @media ($desktop) {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 48px;
+  }
+
+  @media ($desktopLarge) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &-OneFr {
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 32px;
+
+    @media ($desktop) {
+      grid-template-columns: 30% 70%;
+      column-gap: 32px;
+    }
+  }
+}
