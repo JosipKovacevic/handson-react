@@ -1,21 +1,32 @@
 import React from "react";
+import { useState, useEffect } from "react";
+
+import coursesMock from "../../lib/mock/courses";
 import Header from "../../components/Header/Header";
 import Landing from "../../components/Landing/Landing";
 import Main from "../../components/Main/Main";
 import Section from "../../components/Section/Section";
 import CourseCard from "../../components/CourseCard/CourseCard";
-import Grid from "../../components/Grid/Grid";
+// import Grid from "../../components/Grid/Grid";
 import Testimonial from "../../components/Testimonial/Testimonial";
 
-import LectureImg1 from "../../assets/images/lecture-1.jpg";
-import LectureImg2 from "../../assets/images/lecture-2.jpg";
-import LectureImg3 from "../../assets/images/lecture-3.jpg";
-import LectureImg4 from "../../assets/images/lecture-4.jpg";
+import { Grid } from "../../lib/style/generalStyle";
+
+// import LectureImg1 from "../../assets/images/lecture-1.jpg";
+// import LectureImg2 from "../../assets/images/lecture-2.jpg";
+// import LectureImg3 from "../../assets/images/lecture-3.jpg";
+// import LectureImg4 from "../../assets/images/lecture-4.jpg";
 
 const Home = () => {
+  const [courses, setCourses] = useState(null);
+  useEffect(() => {
+    setTimeout(() => {
+      setCourses(coursesMock);
+    }, 1000);
+  }, []);
   return (
     <>
-      <Header modifiers={["header"]} />
+      <Header />
       <Main>
         <section>
           <Landing />
@@ -26,7 +37,25 @@ const Home = () => {
           buttonText={"More courses"}
           buttonPath={"/Courses"}
         >
-          <Grid modifiers={["Grid"]}>
+          {courses && (
+            <Grid>
+              {courses.map(
+                (course, index) =>
+                  index <= 3 && (
+                    <CourseCard
+                      key={course.id}
+                      courseId={course.id}
+                      imgSrc={course.imgSrc}
+                      imgAlt={course.imgAlt}
+                      title={course.title}
+                      subtitle={course.subtitle}
+                    />
+                  )
+              )}
+            </Grid>
+          )}
+
+          {/* <Grid modifiers={["Grid"]}>
             <CourseCard
               imgSrc={LectureImg1}
               imgAlt={"Introduction"}
@@ -51,7 +80,7 @@ const Home = () => {
               title={"4. Advanced CSS"}
               subtitle={"120+ Minutes"}
             />
-          </Grid>
+          </Grid> */}
         </Section>
         <Section isHeadingVisible={"false"} modifiers={["testimonials"]}>
           <Testimonial />

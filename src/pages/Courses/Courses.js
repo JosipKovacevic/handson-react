@@ -2,8 +2,9 @@ import React from "react";
 import Main from "../../components/Main/Main";
 import Section from "../../components/Section/Section";
 import CourseCard from "../../components/CourseCard/CourseCard";
-import Grid from "../../components/Grid/Grid";
+// import Grid from "../../components/Grid/Grid";
 import Header from "../../components/Header/Header";
+import { Grid } from "../../lib/style/generalStyle";
 
 import LectureImg1 from "../../assets/images/lecture-1.jpg";
 import LectureImg2 from "../../assets/images/lecture-2.jpg";
@@ -17,13 +18,13 @@ import LectureImg8 from "../../assets/images/lecture-8.jpg";
 const Courses = () => {
   return (
     <>
-      <Header modifiers={["headerCourses"]} />
+      <Header isSecondary={true} />
       <Main>
         <Section
           actionText={"Learn something new"}
           title={"Open new posibilities"}
         >
-          <Grid modifiers={["Grid"]}>
+          <Grid>
             <CourseCard
               imgSrc={LectureImg1}
               imgAlt={"Introduction"}

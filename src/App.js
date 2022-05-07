@@ -5,6 +5,8 @@ import React from "react";
 
 import Courses from "./pages/Courses/Courses";
 import Course from "./pages/Course/Course";
+import Register from "./pages/Register/Register";
+import SignIn from "./pages/SignIn/SignIn";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 function App() {
@@ -14,7 +16,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Courses" element={<Courses />} />
-        <Route path="/Course" element={<Course />} />
+        <Route path="/Course/:id" element={<Course />} />
+        <Route path="/Register" element={<Register />} />
+        <Route path="/SignIn" element={<SignIn />} />
       </Routes>
     </>
   );
