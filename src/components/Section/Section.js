@@ -12,7 +12,8 @@ import {
 } from "./SectionStyle";
 import { Button } from "../Button/ButtonStyle";
 import { ButtonLink } from "../Header/HeaderStyle";
-
+import { SearchBar } from "../SearchBar/SearchBarStyle";
+import { useState } from "react";
 const Section = ({
   isHeading,
   isOutline,
@@ -24,7 +25,9 @@ const Section = ({
   children,
   isMainSection = false,
   isCentered,
+  isSearchbar = false,
 }) => {
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <SectionWrapper>
       <SectionInner>
@@ -39,9 +42,7 @@ const Section = ({
               ))}
             {buttonText && (
               <ButtonLink to={buttonPath}>
-                <Button isOutline isHeading>
-                  {buttonText}
-                </Button>
+                <Button isOutline>{buttonText}</Button>
               </ButtonLink>
             )}
           </SectionHeading>

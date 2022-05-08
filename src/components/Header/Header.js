@@ -14,7 +14,7 @@ import {
   ButtonLink,
 } from "./HeaderStyle";
 
-const Header = ({ isSecondary, isNav, isSecondaryButton }) => {
+const Header = ({ isSecondary, isActive }) => {
   return (
     <HeaderWrapper isSecondary={isSecondary}>
       <HeaderInner>
@@ -23,7 +23,9 @@ const Header = ({ isSecondary, isNav, isSecondaryButton }) => {
         </LogoLink>
         <Hamburger />
         <Nav>
-          <HeaderNavLink to="/Courses">Courses</HeaderNavLink>
+          <HeaderNavLink isActive={isActive} to="/Courses">
+            Courses
+          </HeaderNavLink>
           <ButtonLink to="/SignIn">
             <Button isNav={true}>Sign in</Button>
           </ButtonLink>

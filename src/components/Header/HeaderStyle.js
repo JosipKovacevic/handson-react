@@ -68,11 +68,16 @@ export const Nav = styled.nav`
 `;
 
 export const HeaderNavLink = styled(NavLink)`
-  color: ${colors.colorSecondary};
+  color: ${colors.secondary};
   letter-spacing: 1px;
   margin-right: 48px;
   cursor: pointer;
   position: relative;
+
+  ${(props) =>
+    props.isActive &&
+    `text-decoration: underline;
+    text-underline-offset: 10px;`}
 
   &:after {
     content: "";

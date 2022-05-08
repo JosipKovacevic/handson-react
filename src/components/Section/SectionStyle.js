@@ -5,7 +5,7 @@ import { css } from "styled-components";
 export const Section = styled.div`
   padding: 60px 24px;
 
-  @media ${breakpoints.desktop} {
+  @media (${breakpoints.desktop}) {
     padding: 120px 0;
   }
 
@@ -15,12 +15,12 @@ export const Section = styled.div`
 
 export const SectionInner = styled.div`
   padding-top: 60px;
-  @media ${breakpoints.desktop} {
+  @media (${breakpoints.desktop}) {
     width: 960px;
     margin: auto;
   }
 
-  @media ${breakpoints.desktopLarge} {
+  @media (${breakpoints.desktopLarge}) {
     width: 1260px;
   }
 `;
@@ -35,7 +35,7 @@ export const SectionActionText = styled.span`
 export const SectionHeading = styled.div`
   margin-bottom: 64px;
 
-  @media ${breakpoints.tablet} {
+  @media (${breakpoints.tablet}) {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,12 +48,12 @@ const TitleStyle = css`
   font-weight: 500;
   margin-bottom: 32px;
 
-  @media ${breakpoints.tablet} {
+  @media (${breakpoints.tablet}) {
     font-size: 32px;
     margin-bottom: 0;
   }
 
-  @media ${breakpoints.desktop} {
+  @media (${breakpoints.desktop}) {
     font-size: 36px;
   }
 `;
