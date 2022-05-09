@@ -13,6 +13,7 @@ import {
   HeaderNavLink,
   ButtonLink,
 } from "./HeaderStyle";
+import Dropdown from "./Hamburger.js";
 
 const Header = ({ isSecondary, isActive }) => {
   return (
@@ -21,7 +22,7 @@ const Header = ({ isSecondary, isActive }) => {
         <LogoLink to="/">
           <LogoElement src={LogoImg} alt="Logo" />
         </LogoLink>
-        <Hamburger />
+        <Dropdown />
         <Nav>
           <HeaderNavLink isActive={isActive} to="/Courses">
             Courses
