@@ -24,7 +24,7 @@ const Header = ({ isSecondary, isActive }) => {
         </LogoLink>
         <Dropdown />
         <Nav>
-          <HeaderNavLink isActive={isActive} to="/Courses">
+          <HeaderNavLink to="/Courses" isActive={isActive}>
             Courses
           </HeaderNavLink>
           <ButtonLink to="/SignIn">

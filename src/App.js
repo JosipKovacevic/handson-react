@@ -9,6 +9,8 @@ import Register from "./pages/Register/Register";
 import SignIn from "./pages/SignIn/SignIn";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 function App() {
   return (
     <>
