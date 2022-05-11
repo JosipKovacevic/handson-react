@@ -31,10 +31,7 @@ const Courses = () => {
     <>
       <Header isSecondary={true} isActive={true} />
       <Main>
-        <Section
-          actionText={"Learn something new"}
-          title={"Open new posibilities"}
-        >
+        <Section title={"All courses"}>
           {isLoading == true ? (
             <>
               <SearchBar
@@ -84,7 +81,7 @@ const Courses = () => {
                         )
                     )}
                 </Grid>
-              )}{" "}
+              )}
             </>
           )}
         </Section>

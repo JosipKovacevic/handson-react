@@ -40,8 +40,8 @@ const Course = () => {
           <CourseCard
             imgSrc={course.imgSrc}
             imgAlt={course.imgAlt}
-            title={"1. Introduction"}
-            subtitle={"60 Minutes"}
+            title={course.title}
+            subtitle={course.subtitle}
           />
           <CourseText text={course.text} />
         </Section>

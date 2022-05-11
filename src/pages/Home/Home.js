@@ -22,10 +22,10 @@ const Home = () => {
     }, 1000);
   }, []);
   const [searchTerm, setSearchTerm] = useState("");
-  const [isLoading, setSsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
-      setSsLoading(false);
+      setIsLoading(false);
     }, 1000);
   });
   return (
