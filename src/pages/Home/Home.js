@@ -15,19 +15,21 @@ import { SearchBar } from "../../components/SearchBar/SearchBarStyle";
 import Loading from "../../components/Loading/Loading";
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [courses, setCourses] = useState(null);
   useEffect(() => {
     setTimeout(() => {
+      setIsLoading(false);
       setCourses(coursesMock);
     }, 1000);
   }, []);
   const [searchTerm, setSearchTerm] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  });
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 1000);
+  // });
   return (
     <>
       <Header />

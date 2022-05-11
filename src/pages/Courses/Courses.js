@@ -14,19 +14,16 @@ import Loading from "../../components/Loading/Loading";
 
 //SearchBar preuzet kod PedroTech
 const Courses = () => {
+  const [isLoading, setSsLoading] = useState(true);
   const [courses, setCourses] = useState(null);
   useEffect(() => {
     setTimeout(() => {
+      setSsLoading(false);
       setCourses(coursesMock);
     }, 1000);
   }, []);
   const [searchTerm, setSearchTerm] = useState("");
-  const [isLoading, setSsLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setSsLoading(false);
-    }, 1000);
-  });
+
   return (
     <>
       <Header isSecondary={true} isActive={true} />
