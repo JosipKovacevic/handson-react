@@ -24,9 +24,7 @@ const Section = ({
   children,
   isMainSection = false,
   isCentered,
-  isSearchbar = false,
 }) => {
-
   return (
     <SectionWrapper>
       <SectionInner>

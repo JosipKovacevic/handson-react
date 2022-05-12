@@ -1,4 +1,4 @@
-import { Header } from "../../components/Header/HeaderStyle";
+import Header from "../../components/Header/Header";
 import { Section } from "../../components/Section/SectionStyle";
 import {
   Form,
@@ -6,17 +6,18 @@ import {
   Select,
   Option,
   ErrorMessage,
+  Field,
 } from "../../lib/style/generalStyle";
 import * as Yup from "yup";
 
-import { Field, Formik } from "formik";
+import { Formik } from "formik";
 import { Button } from "../../components/Button/ButtonStyle";
 
 const Register = () => {
   return (
     <>
       <Header isSecondary />
-      <Section title={"Register"}>
+      <Section title={"Register"} isMainSection={true} isCentered={true}>
         <Formik
           initialValues={{
             firstName: "",
@@ -72,7 +73,7 @@ const Register = () => {
           }}
         >
           {(formik) => (
-            <Form>
+            <Form isCentered>
               <FormRow>
                 <Field
                   type="text"
@@ -134,7 +135,7 @@ const Register = () => {
                   placeholder="Zepelin username..."
                   disabled={formik.isSubmitting}
                 />
-                <ErrorMessage component={"div"} name="zepelin" />
+                <ErrorMessage component={"div"} name="zeplinUsername" />
               </FormRow>
               <FormRow>
                 <Select
@@ -154,7 +155,7 @@ const Register = () => {
                 <ErrorMessage component={"div"} name="activeFacultyYear" />
               </FormRow>
               <FormRow>
-                <Button disabled={formik.isSubmitting}>
+                <Button type="submit" disabled={formik.isSubmitting}>
                   {formik.isSubmitting ? "Processing..." : "Register"}
                 </Button>
               </FormRow>
