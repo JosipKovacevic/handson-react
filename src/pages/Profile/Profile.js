@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Header from "../../components/Header/Header";
 import Section from "../../components/Section/Section";
 import {
@@ -7,27 +8,37 @@ import {
   Option,
   ErrorMessage,
   Field,
+  ButtonWrapper,
 } from "../../lib/style/generalStyle";
 import * as Yup from "yup";
 
 import { Formik } from "formik";
 import Button from "../../components/Button/Button";
 
-const Register = () => {
+const Profile = () => {
+  const [open, setOpen] = useState(true);
+  const toggle = () => setOpen(!open);
   return (
     <>
-      <Header isSecondary />
-      <Section title={"Register"} isMainSection={true} isCentered={true}>
+      <Header isSecondary isProfile={true} />
+
+      <Section title={"Profile"} isMainSection={false}>
+        <ButtonWrapper>
+          <Button isOutline={true} isEdit={true} onClick={() => toggle(!open)}>
+            {open == true ? "Edit" : "Cancel"}
+          </Button>
+        </ButtonWrapper>
         <Formik
+          disabled
           initialValues={{
-            firstName: "",
-            lastName: "",
-            email: "",
-            password: "",
-            passwordConfirmed: "",
-            gihubUsername: "",
-            zeplinUsername: "",
-            activeFacultyYear: "",
+            firstName: "Josip",
+            lastName: "Kovacevic",
+            email: "email@email.com",
+            password: "12345678",
+            passwordConfirmed: "12345678",
+            gihubUsername: "JosipKovacevic",
+            zeplinUsername: "JosipKovacevic",
+            activeFacultyYear: "5th faculty year",
             isAdmin: false,
           }}
           validationSchema={Yup.object({
@@ -58,29 +69,13 @@ const Register = () => {
             setTimeout(() => {
               alert(JSON.stringify(values, null, 2));
               actions.setSubmitting(false);
-              actions.resetForm({
-                firstName: "",
-                lastName: "",
-                email: "",
-                password: "",
-                passwordConfirmed: "",
-                gihubUsername: "",
-                zeplinUsername: "",
-                activeFacultyYear: "",
-                isAdmin: false,
-              });
             }, 1000);
           }}
         >
           {(formik) => (
-            <Form isCentered>
+            <Form isCentered={false}>
               <FormRow>
-                <Field
-                  type="text"
-                  name="firstName"
-                  placeholder="First name..."
-                  disabled={formik.isSubmitting}
-                />
+                <Field type="text" name="firstName" disabled={open} />
                 <ErrorMessage component={"div"} name="firstName" />
               </FormRow>
               <FormRow>
@@ -88,7 +83,7 @@ const Register = () => {
                   type="text"
                   name="lastName"
                   placeholder="Last name..."
-                  disabled={formik.isSubmitting}
+                  disabled={open}
                 />
                 <ErrorMessage component={"div"} name="lastName" />
               </FormRow>
@@ -97,7 +92,7 @@ const Register = () => {
                   type="email"
                   name="email"
                   placeholder="E-mail ..."
-                  disabled={formik.isSubmitting}
+                  disabled={open}
                 />
                 <ErrorMessage component={"div"} name="email" />
               </FormRow>
@@ -106,7 +101,7 @@ const Register = () => {
                   type="password"
                   name="password"
                   placeholder="Password..."
-                  disabled={formik.isSubmitting}
+                  disabled={open}
                 />
                 <ErrorMessage component={"div"} name="password" />
               </FormRow>
@@ -115,7 +110,7 @@ const Register = () => {
                   type="password"
                   name="passwordConfirmed"
                   placeholder="Password confirmed..."
-                  disabled={formik.isSubmitting}
+                  disabled={open}
                 />
                 <ErrorMessage component={"div"} name="passwordConfirmed" />
               </FormRow>
@@ -124,7 +119,7 @@ const Register = () => {
                   type="text"
                   name="gihubUsername"
                   placeholder="GitHub username..."
-                  disabled={formik.isSubmitting}
+                  disabled={open}
                 />
                 <ErrorMessage component={"div"} name="gihubUsername" />
               </FormRow>
@@ -133,16 +128,17 @@ const Register = () => {
                   type="text"
                   name="zeplinUsername"
                   placeholder="Zepelin username..."
-                  disabled={formik.isSubmitting}
+                  disabled={open}
                 />
                 <ErrorMessage component={"div"} name="zeplinUsername" />
               </FormRow>
               <FormRow>
                 <Select
                   id="activeFacultyYear"
+                  disabled={open}
                   {...formik.getFieldProps("activeFacultyYear")}
                 >
-                  <Option value="" disabled hidden>
+                  <Option value="" hidden>
                     Choose an Active faculty year
                   </Option>
                   <Option value="0">Not a student</Option>
@@ -154,15 +150,17 @@ const Register = () => {
                 </Select>
                 <ErrorMessage component={"div"} name="activeFacultyYear" />
               </FormRow>
-              <FormRow>
-                <Button
-                  isOutline={true}
-                  isFormButton={true}
-                  disabled={formik.isSubmitting}
-                >
-                  {formik.isSubmitting ? "Processing..." : "Register"}
-                </Button>
-              </FormRow>
+              {open == false && (
+                <FormRow>
+                  <Button
+                    isOutline={true}
+                    isFormButton={true}
+                    disabled={formik.isSubmitting}
+                  >
+                    {formik.isSubmitting ? "Processing..." : "Update"}
+                  </Button>
+                </FormRow>
+              )}
             </Form>
           )}
         </Formik>
@@ -170,4 +168,4 @@ const Register = () => {
     </>
   );
 };
-export default Register;
+export default Profile;

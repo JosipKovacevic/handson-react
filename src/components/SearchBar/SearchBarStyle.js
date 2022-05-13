@@ -12,7 +12,6 @@ export const SearchBar = styled.input`
 
   @media (${breakpoints.tabletMedium}) {
     max-width: 400px;
-    padding: 0;
     border: 1px solid;
     border-color: ${colors.textSecondary};
     border-radius: 6px;

@@ -35,7 +35,7 @@ export const Form = styled(FormFormik)`
     ${(props) =>
       props.isCentered !== false &&
       `
-            margin: 0 auto;
+            margin-right: 0 auto;
         `}
   }
 `;
@@ -81,4 +81,9 @@ export const ErrorMessage = styled(ErrorMessageFormik)`
   font-size: 14px;
   color: ${colors.primary};
   padding-top: 8px;
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;

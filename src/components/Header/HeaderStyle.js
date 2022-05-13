@@ -46,19 +46,6 @@ export const LogoImg = styled.img`
   width: 140px;
 `;
 
-export const Hamburger = styled(HamburgerIcon)`
-  width: 30px;
-  height: auto;
-
-  path {
-    fill: ${colors.bgPrimary};
-  }
-
-  @media (${breakpoints.desktop}) {
-    display: none;
-  }
-`;
-
 export const Nav = styled.nav`
   display: none;
 
@@ -76,6 +63,11 @@ export const HeaderNavLink = styled(NavLink)`
 
   ${(props) =>
     props.isActive &&
+    `text-decoration: underline;
+    text-underline-offset: 10px;`}
+
+  ${(props) =>
+    props.isProfile &&
     `text-decoration: underline;
     text-underline-offset: 10px;`}
 

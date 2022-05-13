@@ -26,14 +26,17 @@ export const Button = styled.button`
     props.isSecondaryButton &&
     `background: ${colors.primary};
     color:${colors.bgPrimary};`}
-    ${(props) => props.isOutline && `border: 1px solid ${colors.primary}`}
-${(props) => props.isHeading && `width: 200px`}
 
-${(props) =>
+  ${(props) => props.isOutline && `border: 1px solid ${colors.primary};`}
+  ${(props) => props.isHeading && `width: 200px;`}
+  ${(props) =>
+    props.isEdit &&
+    `margin-top: -100px; display:block; margin-bottom: 20px; text-aling:right;`}
+
+  ${(props) =>
     props.isFormButton &&
-    `
-    display:block;
-    margin: 0 auto;`}
+    ` display:block;
+      margin: 0 auto;`}
 `;
 
 // export const ButtonNav = styled.button``˙

@@ -10,12 +10,10 @@ import {
   SectionTitleH1,
   SectionTitleH2,
 } from "./SectionStyle";
-import { Button } from "../Button/ButtonStyle";
+import Button from "../Button/Button";
 import { ButtonLink } from "../Header/HeaderStyle";
 
 const Section = ({
-  isHeading,
-  isOutline,
   actionText,
   title,
   buttonText,
@@ -23,7 +21,7 @@ const Section = ({
   isHeadingVisible = true,
   children,
   isMainSection = false,
-  isCentered,
+  isCentered = false,
 }) => {
   return (
     <SectionWrapper>

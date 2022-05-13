@@ -8,6 +8,7 @@ import Course from "./pages/Course/Course";
 import Register from "./pages/Register/Register";
 import SignIn from "./pages/SignIn/SignIn";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import Profile from "./pages/Profile/Profile";
 
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Course/:id" element={<Course />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/SignIn" element={<SignIn />} />
+        <Route path="/Profile" element={<Profile />} />
       </Routes>
     </>
   );
