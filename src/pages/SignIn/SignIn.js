@@ -3,17 +3,19 @@ import Section from "../../components/Section/Section";
 import {
   Form,
   FormRow,
-  Select,
-  Option,
   ErrorMessage,
   Field,
+  FormSuccessMessage,
 } from "../../lib/style/generalStyle";
 import * as Yup from "yup";
 
 import { Formik } from "formik";
 import Button from "../../components/Button/Button";
+import { getAllUsers, loginUser } from "../../api/users";
+import { useState } from "react";
 
 const SignIn = () => {
+  const [successMessage, setSuccessMessage] = useState(null);
   return (
     <>
       <Header isSecondary />
@@ -29,19 +31,47 @@ const SignIn = () => {
               .required("Email is required"),
             password: Yup.string().min(8).required("Password is required"),
           })}
-          onSubmit={(values, actions) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
+          onSubmit={async (values, actions) => {
+            try {
+              const res = await loginUser(values);
+              const users = await getAllUsers(res.access_token);
+              const user = users.find((user) => user.email === values.email);
+
+              localStorage.setItem("accessToken", res.access_token);
               actions.setSubmitting(false);
               actions.resetForm({
                 email: "",
                 password: "",
               });
-            }, 1000);
+
+              setSuccessMessage({
+                error: false,
+                message: `Hi ${
+                  user.first_name + " " + user.last_name
+                }, login was successful.`,
+              });
+
+              setTimeout(() => {
+                setSuccessMessage(null);
+              }, 3000);
+            } catch (err) {
+              setSuccessMessage({
+                error: true,
+                massage: "Error occured!",
+              });
+              actions.setSubmitting(false);
+            }
           }}
         >
           {(formik) => (
             <Form isCentered>
+              {successMessage && (
+                <FormRow>
+                  <FormSuccessMessage isError={successMessage.error}>
+                    {successMessage.massage}
+                  </FormSuccessMessage>
+                </FormRow>
+              )}
               <FormRow>
                 <Field
                   type="email"
@@ -66,6 +96,7 @@ const SignIn = () => {
                   isOutline={true}
                   isFormButton={true}
                   disabled={formik.isSubmitting}
+                  isCentered
                 >
                   {formik.isSubmitting ? "Processing..." : "Sign in"}
                 </Button>
