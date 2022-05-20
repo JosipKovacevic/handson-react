@@ -1,8 +1,8 @@
 import React from "react";
-import "./CourseText.scss";
+import { CourseText as CourseTextParaf } from "./CourseTextStyle";
 
 const CourseText = ({ text }) => {
-  return <p className="Course-Text">{text}</p>;
+  return <CourseTextParaf>{text}</CourseTextParaf>;
 };
 
 export default CourseText;

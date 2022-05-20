@@ -141,3 +141,15 @@ export const PasswordH3 = styled.h3`
 
   font-family: ${fonts.primary};
 `;
+
+export const Label = styled.p`
+  padding-bottom: 5px;
+  font-size: 14px;
+  color: ${colors.textPrimary};
+
+  ${(props) =>
+    props.isLeft &&
+    `
+    text-align: left;
+`}
+`;

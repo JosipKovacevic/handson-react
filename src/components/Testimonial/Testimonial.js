@@ -1,5 +1,4 @@
 import React from "react";
-import "./Testimonial.scss";
 
 import TestimonialImg from "../../assets/images/testimonial.jpg";
 import {

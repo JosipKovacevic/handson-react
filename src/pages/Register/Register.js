@@ -9,6 +9,7 @@ import {
   ErrorMessage,
   Field,
   FormSuccessMessage,
+  Label,
 } from "../../lib/style/generalStyle";
 import * as Yup from "yup";
 
@@ -31,7 +32,7 @@ const Register = () => {
               email: "",
               password: "",
               passwordConfirmed: "",
-              gihubUsername: "",
+              githubUsername: "",
               zeplinUsername: "",
               activeFacultyYear: "",
               isAdmin: false,
@@ -52,7 +53,7 @@ const Register = () => {
                   }
                 )
                 .required("Password confirmed is required"),
-              gihubUsername: Yup.string().required(
+              githubUsername: Yup.string().required(
                 "GitHub username is required"
               ),
               zeplinUsername: Yup.string().required(
@@ -68,7 +69,7 @@ const Register = () => {
                 last_name: values.lastName,
                 email: values.email,
                 password: values.password,
-                github_username: values.gihubUsername,
+                github_username: values.githubUsername,
                 zeplin_username: values.zeplinUsername,
                 active_faculty_year:
                   Number(values.activeFacultyYear) === 0
@@ -86,7 +87,7 @@ const Register = () => {
                     email: "",
                     password: "",
                     passwordConfirmed: "",
-                    gihubUsername: "",
+                    githubUsername: "",
                     zeplinUsername: "",
                     activeFacultyYear: "",
                     isAdmin: false,
@@ -120,6 +121,7 @@ const Register = () => {
                   </FormRow>
                 )}
                 <FormRow>
+                  <Label isLeft>First name</Label>
                   <Field
                     type="text"
                     name="firstName"
@@ -129,6 +131,7 @@ const Register = () => {
                   <ErrorMessage component={"div"} name="firstName" />
                 </FormRow>
                 <FormRow>
+                  <Label isLeft>Last name</Label>
                   <Field
                     type="text"
                     name="lastName"
@@ -138,6 +141,7 @@ const Register = () => {
                   <ErrorMessage component={"div"} name="lastName" />
                 </FormRow>
                 <FormRow>
+                  <Label isLeft>Email</Label>
                   <Field
                     type="email"
                     name="email"
@@ -147,6 +151,7 @@ const Register = () => {
                   <ErrorMessage component={"div"} name="email" />
                 </FormRow>
                 <FormRow>
+                  <Label isLeft>Password</Label>
                   <Field
                     type="password"
                     name="password"
@@ -156,6 +161,7 @@ const Register = () => {
                   <ErrorMessage component={"div"} name="password" />
                 </FormRow>
                 <FormRow>
+                  <Label isLeft>Password confirmed</Label>
                   <Field
                     type="password"
                     name="passwordConfirmed"
@@ -165,15 +171,17 @@ const Register = () => {
                   <ErrorMessage component={"div"} name="passwordConfirmed" />
                 </FormRow>
                 <FormRow>
+                  <Label isLeft>Github username</Label>
                   <Field
                     type="text"
-                    name="gihubUsername"
+                    name="githubUsername"
                     placeholder="GitHub username..."
                     disabled={formik.isSubmitting}
                   />
-                  <ErrorMessage component={"div"} name="gihubUsername" />
+                  <ErrorMessage component={"div"} name="githubUsername" />
                 </FormRow>
                 <FormRow>
+                  <Label isLeft>Zeplin username</Label>
                   <Field
                     type="text"
                     name="zeplinUsername"
@@ -183,6 +191,7 @@ const Register = () => {
                   <ErrorMessage component={"div"} name="zeplinUsername" />
                 </FormRow>
                 <FormRow>
+                  <Label isLeft>Active faculty year</Label>
                   <Select
                     id="activeFacultyYear"
                     {...formik.getFieldProps("activeFacultyYear")}

@@ -1,7 +1,7 @@
-import "./Main.scss";
+import { Main as MainWrapper } from "./MainStyle";
 
 const Main = (props) => {
-  return <main className="Main">{props.children}</main>;
+  return <MainWrapper>{props.children}</MainWrapper>;
 };
 
 export default Main;

@@ -6,6 +6,7 @@ import {
   ErrorMessage,
   Field,
   FormSuccessMessage,
+  Label,
 } from "../../lib/style/generalStyle";
 import * as Yup from "yup";
 
@@ -34,7 +35,9 @@ const SignIn = () => {
           onSubmit={async (values, actions) => {
             try {
               const res = await loginUser(values);
+
               const users = await getAllUsers(res.access_token);
+
               const user = users.find((user) => user.email === values.email);
 
               localStorage.setItem("accessToken", res.access_token);
@@ -73,6 +76,7 @@ const SignIn = () => {
                 </FormRow>
               )}
               <FormRow>
+                <Label>Email</Label>
                 <Field
                   type="email"
                   name="email"
@@ -82,6 +86,7 @@ const SignIn = () => {
                 <ErrorMessage component={"div"} name="email" />
               </FormRow>
               <FormRow>
+                <Label>Password</Label>
                 <Field
                   type="password"
                   name="password"

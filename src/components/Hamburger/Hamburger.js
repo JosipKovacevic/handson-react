@@ -1,17 +1,9 @@
-import React, { useState } from "react";
-import {
-  Hamburger,
-  HamburgerLi,
-  HamburgerUl,
-  HamburgerWrapper,
-} from "./HamburgerStyle";
-import { Nav, HeaderNavLink, ButtonLink } from "../Header/HeaderStyle";
+import React from "react";
+import { HamburgerLi, HamburgerUl, HamburgerWrapper } from "./HamburgerStyle";
+import { HeaderNavLink, ButtonLink } from "../Header/HeaderStyle";
 import { Button } from "../Button/ButtonStyle";
 
 const Dropdown = ({ isActive, isProfile }) => {
-  const [open, setOpen] = useState(false);
-  const toggle = () => setOpen(!open);
-
   return (
     <>
       <HamburgerWrapper>

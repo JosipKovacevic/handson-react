@@ -3,7 +3,6 @@ import React from "react";
 import Section from "../../components/Section/Section";
 import CourseCard from "../../components/CourseCard/CourseCard";
 
-import "./Course.scss";
 import Header from "../../components/Header/Header";
 import CourseText from "../../components/CourseText/CourseText";
 

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Header.scss";
 import LogoImg from "../../assets/images/logo.svg";
 import Button from "../Button/Button";
 // import { Link, NavLink } from "react-router-dom";

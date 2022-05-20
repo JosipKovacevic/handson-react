@@ -15,6 +15,7 @@ import {
   PasswordText,
   PasswordDivInner,
   PasswordDivInnerBig,
+  Label,
 } from "../../lib/style/generalStyle";
 import * as Yup from "yup";
 
@@ -31,7 +32,7 @@ const Profile = () => {
       <Section title={"Profile"} isMainSection={false}>
         <ButtonWrapper>
           <Button isOutline={true} isEdit={true} onClick={() => toggle(!open)}>
-            {open == true ? "Edit" : "Cancel"}
+            {open === true ? "Edit" : "Cancel"}
           </Button>
         </ButtonWrapper>
         <Grid>
@@ -73,6 +74,7 @@ const Profile = () => {
             {(formik) => (
               <Form isRight={true}>
                 <FormRow>
+                  <Label>First name</Label>
                   <Field
                     type="text"
                     name="firstName"
@@ -82,6 +84,7 @@ const Profile = () => {
                   <ErrorMessage component={"div"} name="firstName" />
                 </FormRow>
                 <FormRow>
+                  <Label>Last name</Label>
                   <Field
                     type="text"
                     name="lastName"
@@ -91,6 +94,7 @@ const Profile = () => {
                   <ErrorMessage component={"div"} name="lastName" />
                 </FormRow>
                 <FormRow>
+                  <Label>Email name</Label>
                   <Field
                     type="email"
                     name="email"
@@ -101,6 +105,7 @@ const Profile = () => {
                 </FormRow>
 
                 <FormRow>
+                  <Label>GitHub username</Label>
                   <Field
                     type="text"
                     name="gihubUsername"
@@ -110,6 +115,7 @@ const Profile = () => {
                   <ErrorMessage component={"div"} name="gihubUsername" />
                 </FormRow>
                 <FormRow>
+                  <Label>Zeplin username</Label>
                   <Field
                     type="text"
                     name="zeplinUsername"
@@ -119,6 +125,7 @@ const Profile = () => {
                   <ErrorMessage component={"div"} name="zeplinUsername" />
                 </FormRow>
                 <FormRow>
+                  <Label>Active faculty year</Label>
                   <Select
                     id="activeFacultyYear"
                     disabled={open}
@@ -136,7 +143,7 @@ const Profile = () => {
                   </Select>
                   <ErrorMessage component={"div"} name="activeFacultyYear" />
                 </FormRow>
-                {open == false && (
+                {open === false && (
                   <FormRow>
                     <Button
                       isOutline={true}
@@ -150,7 +157,7 @@ const Profile = () => {
               </Form>
             )}
           </Formik>
-          {open == false ? (
+          {open === false ? (
             <PasswordDiv>
               <PasswordDivInnerBig>
                 <PasswordH3>Password reset</PasswordH3>
@@ -182,7 +189,7 @@ const Profile = () => {
                   })}
                   onSubmit={(values, actions) => {
                     setTimeout(() => {
-                      alert(JSON.stringify(values, null, 2));
+                      alert("Password updated successfully");
                       actions.setSubmitting(false);
                     }, 1000);
                   }}
@@ -190,6 +197,7 @@ const Profile = () => {
                   {(formik) => (
                     <Form isRight={true}>
                       <FormRow>
+                        <Label>Old password</Label>
                         <Field
                           type="password"
                           name="oldPassword"
@@ -199,6 +207,7 @@ const Profile = () => {
                         <ErrorMessage component={"div"} name="oldPassword" />
                       </FormRow>
                       <FormRow>
+                        <Label>New password</Label>
                         <Field
                           type="password"
                           name="password"
@@ -208,6 +217,7 @@ const Profile = () => {
                         <ErrorMessage component={"div"} name="password" />
                       </FormRow>
                       <FormRow>
+                        <Label>New password confirmed</Label>
                         <Field
                           type="password"
                           name="passwordConfirmed"
