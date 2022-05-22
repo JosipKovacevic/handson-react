@@ -29,9 +29,7 @@ export const Button = styled.button`
 
   ${(props) => props.isOutline && `border: 1px solid ${colors.primary};`}
   ${(props) => props.isHeading && `width: 200px;`}
-  ${(props) =>
-    props.isEdit &&
-    `margin-top: -100px; display:block; margin-bottom: 20px; text-aling:right;`}
+  ${(props) => props.isEdit && `margin-top: -100px;  margin-bottom: 20px;  `}
 
   ${(props) =>
     props.isFormButton &&

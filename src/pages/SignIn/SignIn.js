@@ -49,7 +49,7 @@ const SignIn = () => {
 
               setSuccessMessage({
                 error: false,
-                message: `Hi ${
+                massage: `Hi ${
                   user.first_name + " " + user.last_name
                 }, login was successful.`,
               });

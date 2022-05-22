@@ -27,6 +27,15 @@ export const Grid = styled.div`
     grid-template-columns: repeat(4, 1fr);
   }
 `;
+export const GridBig = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 48px;
+
+  @media (${breakpoints.tablet}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
 
 export const Form = styled(FormFormik)`
   @media (${breakpoints.tabletSmall}) {
@@ -116,16 +125,22 @@ export const PasswordDiv = styled.div`
 
 export const PasswordDivInner = styled.div`
   background-color: ${colors.bgSecondary};
+  border-radius: 15px;
   width: 300px;
   height: 150px;
   padding: 14px;
+  margin: auto;
+  @media (${breakpoints.tablet}) {
+    margin-left: 10px;
+  }
 `;
 
 export const PasswordDivInnerBig = styled.div`
   background-color: ${colors.bgSecondary};
+  border-radius: 15px;
   width: 100%;
   padding: 14px;
-  height: 400px;
+  height: 450px;
 `;
 
 export const PasswordText = styled.p`

@@ -9,7 +9,7 @@ import {
   ErrorMessage,
   Field,
   ButtonWrapper,
-  Grid,
+  GridBig,
   PasswordDiv,
   PasswordH3,
   PasswordText,
@@ -35,7 +35,7 @@ const Profile = () => {
             {open === true ? "Edit" : "Cancel"}
           </Button>
         </ButtonWrapper>
-        <Grid>
+        <GridBig>
           <Formik
             disabled
             initialValues={{
@@ -254,7 +254,7 @@ const Profile = () => {
               </PasswordDivInner>
             </PasswordDiv>
           )}
-        </Grid>
+        </GridBig>
       </Section>
     </>
   );

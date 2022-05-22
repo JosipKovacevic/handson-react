@@ -64,12 +64,14 @@ export const HeaderNavLink = styled(NavLink)`
   ${(props) =>
     props.isActive &&
     `text-decoration: underline;
-    text-underline-offset: 10px;`}
+    text-underline-offset: 10px;
+    `}
 
   ${(props) =>
     props.isProfile &&
     `text-decoration: underline;
-    text-underline-offset: 10px;`}
+    text-underline-offset: 10px;
+    `}
 
   &:after {
     content: "";

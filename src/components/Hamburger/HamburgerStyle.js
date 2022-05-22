@@ -20,6 +20,7 @@ export const HamburgerUl = styled.ul``;
 export const HamburgerLi = styled.li`
   list-style-type: none;
   margin: 20px;
+  display: block;
   text-align: center;
 `;
 
@@ -30,4 +31,7 @@ export const HamburgerWrapper = styled.div`
 
   padding: 20px;
   padding-top: 80px;
+  @media (${breakpoints.desktop}) {
+    display: none;
+  }
 `;
